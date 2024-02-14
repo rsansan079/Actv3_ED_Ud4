@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package sample;
+package samples;
 
 import java.lang.reflect.Method;
 import java.math.BigInteger;

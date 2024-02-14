@@ -1,31 +1,31 @@
-package samples;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
+package samples;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import sample.Vectors;
+import org.junit.AfterClass;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author rsansan079
  */
-public class VectorsJUnit3Test {
+public class VectorsTest {
     
-    public VectorsJUnit3Test() {
+    public VectorsTest() {
     }
     
-    @BeforeAll
-    public static void setUpClass() {
+    @Before
+    public  void setUpClass() {
     }
     
-    @AfterAll
-    public static void tearDownClass() {
+    @After
+    public  void tearDownClass() {
     }
 
     /**
