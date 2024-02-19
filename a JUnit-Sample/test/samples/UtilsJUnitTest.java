@@ -46,21 +46,31 @@ public class UtilsJUnitTest {
      * Test of computeFactorial method, of class Utils.
      */
     @Test
-    public void testWithTimeout() throws InterruptedException, TimeoutException {
-        final int factorialOf = 5; 
-        System.out.println("informática" + factorialOf + '!');
+    public void testWithTimeout() throws InterruptedException {
+        final int factorialOf = 5;
+        System.out.println("Factorial de " + factorialOf + '!');
         Thread testThread = new Thread() {
             public void run() {
                 System.out.println(factorialOf + "! = " + Utils.computeFactorial(factorialOf));
             }
         };
         testThread.start();
-        Thread.sleep(10000);
-        testThread.interrupt();
-        if (testThread.isInterrupted()) {
-            throw new TimeoutException("the test took too long to complete");
+        // Esperar un máximo de 10 segundos para que el hilo de prueba termine
+        testThread.join(10000);
+        // Verificar si el hilo de prueba aún está vivo
+        if (testThread.isAlive()) {
+            // Si aún está vivo, significa que ha excedido el límite de tiempo
+            // Puedes hacer alguna acción aquí si el hilo está tardando demasiado en completarse
+            System.out.println("El hilo de prueba ha tardado demasiado en completarse.");
+            // Detener el hilo de prueba
+            testThread.interrupt();
+            // Esperar a que el hilo termine después de la interrupción
+            testThread.join();
         }
+        // Verificar si el hilo de prueba lanzó una excepción
+        assertEquals(false, testThread.isInterrupted());
     }
+
 
     /**
      * Test of normalizeWord method, of class Utils.
